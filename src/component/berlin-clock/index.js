@@ -27,6 +27,8 @@ const BerlinClock = (props) => {
       return "RRRO";
     } else if (hours === 4) {
       return "RRRR";
+    } else if (hours % 5 === 0) {
+      return "OOOO";
     } else {
       return "OOOO";
     }

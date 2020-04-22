@@ -150,4 +150,10 @@ describe("Single Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RRRR");
   });
+
+  it("should render OOOO when hours/5 gives '0' reminder", () => {
+    const wrapper = shallow(<BerlinClock time={"05:00"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("OOOO");
+  });
 });
