@@ -173,4 +173,10 @@ describe("Single Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RRRO");
   });
+
+  it("should render RRRR when hours/5 gives '4' reminder", () => {
+    const wrapper = shallow(<BerlinClock time={"09:00"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("RRRR");
+  });
 });
