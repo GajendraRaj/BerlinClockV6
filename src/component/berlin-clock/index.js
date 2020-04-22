@@ -11,16 +11,23 @@ const BerlinClock = (props) => {
     seconds % 2 === 0 ? Constants.EVEN_SECOND : Constants.ODD_SECOND;
 
   const getHours = (hours) => {
+    const fiveHoursRow = getFiveHoursRow(hours);
+    const hoursColors = [fiveHoursRow];
+
+    return hoursColors;
+  };
+
+  const getFiveHoursRow = (hours) => {
     if (hours >= 20 && hours < 24) {
-      return ["RRRR"];
+      return "RRRR";
     } else if (hours >= 15 && hours <= 19) {
-      return ["RRRO"];
+      return "RRRO";
     } else if (hours >= 10 && hours <= 14) {
-      return ["RROO"];
+      return "RROO";
     } else if (hours >= 5 && hours <= 9) {
-      return ["ROOO"];
+      return "ROOO";
     } else {
-      return ["OOOO"];
+      return "OOOO";
     }
   };
 
