@@ -21,6 +21,8 @@ const BerlinClock = (props) => {
   const getSingleHoursRow = (hours) => {
     if (hours === 1) {
       return "ROOO";
+    } else if (hours === 2) {
+      return "RROO";
     } else {
       return "OOOO";
     }
