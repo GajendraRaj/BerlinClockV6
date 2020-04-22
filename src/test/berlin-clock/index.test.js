@@ -126,4 +126,10 @@ describe("Single Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("OOOO");
   });
+
+  it("should render ROOO for '01' hour", () => {
+    const wrapper = shallow(<BerlinClock time={"01:00"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("ROOO");
+  });
 });
