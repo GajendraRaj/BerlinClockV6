@@ -138,4 +138,10 @@ describe("Single Hours Row functionality", () => {
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RROO");
   });
+
+  it("should render RRRO for '03' hour", () => {
+    const wrapper = shallow(<BerlinClock time={"03:00"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    expect(hoursWrapper.props().hours[1]).toEqual("RRRO");
+  });
 });
