@@ -11,7 +11,12 @@ const BerlinClock = (props) => {
     seconds % 2 === 0 ? Constants.EVEN_SECOND : Constants.ODD_SECOND;
 
   const getHours = (hours) => {
-    return ["OOOO"];
+    console.log(hours);
+    if (hours >= 5 && hours <= 9) {
+      return ["ROOO"];
+    } else {
+      return ["OOOO"];
+    }
   };
 
   return (

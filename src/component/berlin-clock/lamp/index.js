@@ -2,10 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Lamp = (props) => {
+  const lampColor = props.colorBlock === "R" ? "bg-red" : "bg-silver";
   return (
     <div
       key={props.index}
-      className="lamp-rows bg-silver"
+      className={`lamp-rows ${lampColor}`}
       style={{ width: "25%" }}
     />
   );

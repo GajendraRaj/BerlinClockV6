@@ -44,3 +44,7 @@
   border-width: 1px;
   padding: 0.5rem;
 }
+
+.bg-red {
+  background-color: #ff4136;
+}

@@ -18,6 +18,11 @@ describe("Hour component", () => {
     expect(wrapper.find(".bg-silver")).toHaveLength(1);
   });
 
+  it("should render red lamp", () => {
+    wrapper = shallow(<Lamp index={1} colorBlock={"R"} />);
+    expect(wrapper.find(".bg-red")).toHaveLength(1);
+  });
+
   it("should throw error message if there is no index prop", () => {
     const errorMsg =
       "Failed prop type: The prop `index` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
