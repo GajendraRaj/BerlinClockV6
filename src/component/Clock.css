@@ -25,3 +25,7 @@
   border-width: 1px;
   border-radius: 100%;
 }
+
+.bg-silver {
+  background-color: #999999;
+}

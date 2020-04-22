@@ -18,6 +18,11 @@ describe("Seconds component", () => {
     expect(wrapper.find(".bg-yellow")).toHaveLength(1);
   });
 
+  it("should render top lamp in silver color for odd second", () => {
+    const wrapper = shallow(<Seconds seconds={"O"} />);
+    expect(wrapper.find(".bg-silver")).toHaveLength(1);
+  });
+
   it("Should throw error message if there is no seconds prop", () => {
     const errorMsg =
       "Failed prop type: The prop `seconds` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
