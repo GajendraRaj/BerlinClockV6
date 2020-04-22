@@ -4,9 +4,13 @@ import Lamp from "../lamp";
 
 const Hours = (props) => {
   return (
-    <div className="hours">
-      {props.hours[0].split("").map((hour, index) => (
-        <Lamp key={index} colorBlock={hour} />
+    <div>
+      {props.hours.map((hours, index) => (
+        <div key={index} className="hours">
+          {hours.split("").map((hour, index) => (
+            <Lamp key={index} colorBlock={hour} />
+          ))}
+        </div>
       ))}
     </div>
   );
