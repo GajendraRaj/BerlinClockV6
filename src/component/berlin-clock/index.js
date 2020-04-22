@@ -4,7 +4,8 @@ import Seconds from "./seconds";
 import Constants from "../../constant";
 
 const BerlinClock = (props) => {
-  const second = props.time % 2 === 0 ? Constants.EVEN_SECOND : "O";
+  const second =
+    props.time % 2 === 0 ? Constants.EVEN_SECOND : Constants.ODD_SECOND;
   return (
     <div className="clock mv4">
       <Seconds seconds={second} />
