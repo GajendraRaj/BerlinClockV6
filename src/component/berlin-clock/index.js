@@ -22,13 +22,15 @@ const BerlinClock = (props) => {
     let singleHoursRow;
 
     if (hours > 0) {
-      const activeColor = hours % 5;
-      const offColor = 4 - activeColor;
-      singleHoursRow = "R".repeat(activeColor) + "O".repeat(offColor);
+      const activeColor = hours % Constants.FIVE_LAMPS;
+      const offColor = Constants.FOUR_LAMPS - activeColor;
+      singleHoursRow =
+        Constants.ACTIVE_COLOR.repeat(activeColor) +
+        Constants.OFF_COLOR.repeat(offColor);
 
       return singleHoursRow;
     } else {
-      singleHoursRow = "OOOO";
+      singleHoursRow = Constants.OFF_COLOR.repeat(4);
 
       return singleHoursRow;
     }
@@ -37,13 +39,15 @@ const BerlinClock = (props) => {
   const getFiveHoursRow = (hours) => {
     let fiveHoursRow;
     if (hours > 0) {
-      const activeColor = parseInt(hours / 5);
-      const offColor = 4 - activeColor;
-      fiveHoursRow = "R".repeat(activeColor) + "O".repeat(offColor);
+      const activeColor = parseInt(hours / Constants.FIVE_LAMPS);
+      const offColor = Constants.FOUR_LAMPS - activeColor;
+      fiveHoursRow =
+        Constants.ACTIVE_COLOR.repeat(activeColor) +
+        Constants.OFF_COLOR.repeat(offColor);
 
       return fiveHoursRow;
     } else {
-      fiveHoursRow = "OOOO";
+      fiveHoursRow = Constants.OFF_COLOR.repeat(4);
 
       return fiveHoursRow;
     }
