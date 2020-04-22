@@ -1,3 +1,27 @@
 .App {
   text-align: center;
 }
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mv4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.bg-yellow {
+  background-color: #ffd700;
+}
+
+.seconds {
+  width: 4rem;
+  height: 4rem;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 100%;
+}
