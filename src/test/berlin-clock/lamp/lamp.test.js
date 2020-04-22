@@ -7,7 +7,7 @@ describe("Hour component", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Lamp index={1} colorBlock={"O"} />);
+    wrapper = shallow(<Lamp index={1} colorBlock={"O"} width="25%" />);
   });
 
   it("should render a div", () => {
@@ -29,7 +29,7 @@ describe("Hour component", () => {
 
     const result = checkPropTypes(
       Lamp.propTypes,
-      { index: undefined, colorBlock: "R" },
+      { index: undefined, colorBlock: "R", width: "25%" },
       "prop",
       Lamp.index
     );
@@ -43,9 +43,23 @@ describe("Hour component", () => {
 
     const result = checkPropTypes(
       Lamp.propTypes,
-      { index: 1, colorBlock: undefined },
+      { index: 1, colorBlock: undefined, width: "25%" },
       "prop",
       Lamp.colorBlock
+    );
+
+    expect(result).toEqual(errorMsg);
+  });
+
+  it("should throw error message if there is no width prop", () => {
+    const errorMsg =
+      "Failed prop type: The prop `width` is marked as required in `<<anonymous>>`, but its value is `undefined`.";
+
+    const result = checkPropTypes(
+      Lamp.propTypes,
+      { index: 1, colorBlock: "Y", width: undefined },
+      "prop",
+      Lamp.width
     );
 
     expect(result).toEqual(errorMsg);

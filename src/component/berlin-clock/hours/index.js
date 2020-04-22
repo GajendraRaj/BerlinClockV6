@@ -8,7 +8,7 @@ const Hours = (props) => {
       {props.hours.map((hours, index) => (
         <div key={index} className="hours">
           {hours.split("").map((hour, index) => (
-            <Lamp key={index} colorBlock={hour} />
+            <Lamp key={index} colorBlock={hour} width="25%" />
           ))}
         </div>
       ))}

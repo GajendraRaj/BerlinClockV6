@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 import Seconds from "./seconds";
 import Hours from "./hours";
 import Constants from "../../constant";
+import Minutes from "./minutes";
 
 const BerlinClock = (props) => {
-  const [hours, seconds] = props.time.split(":").map((time) => parseInt(time));
+  const [hours, minutes, seconds] = props.time
+    .split(":")
+    .map((time) => parseInt(time));
 
   const second =
     seconds % 2 === 0 ? Constants.EVEN_SECOND : Constants.ODD_SECOND;
@@ -53,10 +56,15 @@ const BerlinClock = (props) => {
     }
   };
 
+  const getMinutes = (minutes) => {
+    return ["OOOOOOOOOOO"];
+  };
+
   return (
     <div className="clock mv4">
       <Seconds seconds={second} />
       <Hours hours={getHours(hours)} />
+      <Minutes minutes={getMinutes(minutes)} />
     </div>
   );
 };

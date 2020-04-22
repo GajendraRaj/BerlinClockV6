@@ -12,7 +12,7 @@ const Lamp = (props) => {
     <div
       key={props.index}
       className={`${Constants.LAMP_ROW_STYLE_CLASS} ${lampColor}`}
-      style={{ width: "25%" }}
+      style={{ width: props.width }}
     />
   );
 };
@@ -20,6 +20,7 @@ const Lamp = (props) => {
 Lamp.propTypes = {
   index: PropTypes.number.isRequired,
   colorBlock: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired,
 };
 
 export default Lamp;

@@ -4,6 +4,7 @@ import checkPropTypes from "check-prop-types";
 import BerlinClock from "../../component/berlin-clock";
 import Seconds from "../../component/berlin-clock/seconds";
 import Hours from "../../component/berlin-clock/hours";
+import Minutes from "../../component/berlin-clock/minutes";
 
 describe("Berlin Clock component", () => {
   let wrapper;
@@ -22,6 +23,10 @@ describe("Berlin Clock component", () => {
 
   it("should render the Hours component", () => {
     expect(wrapper.find("Hours").length).toEqual(1);
+  });
+
+  it("should render the Minutes component", () => {
+    expect(wrapper.find("Minutes").length).toEqual(1);
   });
 
   it("should throw error message if there is no time prop", () => {
@@ -57,7 +62,7 @@ describe("Seconds Lamp functionality", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<BerlinClock time={"00:00"} />);
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
   });
 
   it("should pass Y for even second value", () => {
@@ -66,7 +71,7 @@ describe("Seconds Lamp functionality", () => {
   });
 
   it("should pass O for odd second value", () => {
-    const wrapper = shallow(<BerlinClock time={"00:59"} />);
+    const wrapper = shallow(<BerlinClock time={"00:00:59"} />);
     const secondsWrapper = wrapper.find(Seconds);
     expect(secondsWrapper.props().seconds).toEqual("O");
   });
@@ -178,5 +183,18 @@ describe("Single Hours Row functionality", () => {
     const wrapper = shallow(<BerlinClock time={"09:00"} />);
     const hoursWrapper = wrapper.find(Hours);
     expect(hoursWrapper.props().hours[1]).toEqual("RRRR");
+  });
+});
+
+describe("Five Minutes Row functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should return OOOOOOOOOOO for '00' minutes", () => {
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[0]).toEqual("OOOOOOOOOOO");
   });
 });
