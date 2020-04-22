@@ -19,40 +19,33 @@ const BerlinClock = (props) => {
   };
 
   const getSingleHoursRow = (hours) => {
-    if (hours === 1) {
-      return "ROOO";
-    } else if (hours === 2) {
-      return "RROO";
-    } else if (hours === 3) {
-      return "RRRO";
-    } else if (hours === 4) {
-      return "RRRR";
-    } else if (hours % 5 === 0) {
-      return "OOOO";
-    } else if (hours % 5 === 1) {
-      return "ROOO";
-    } else if (hours % 5 === 2) {
-      return "RROO";
-    } else if (hours % 5 === 3) {
-      return "RRRO";
-    } else if (hours % 5 === 4) {
-      return "RRRR";
+    let singleHoursRow;
+
+    if (hours > 0) {
+      const activeColor = hours % 5;
+      const offColor = 4 - activeColor;
+      singleHoursRow = "R".repeat(activeColor) + "O".repeat(offColor);
+
+      return singleHoursRow;
     } else {
-      return "OOOO";
+      singleHoursRow = "OOOO";
+
+      return singleHoursRow;
     }
   };
 
   const getFiveHoursRow = (hours) => {
-    if (hours >= 20 && hours < 24) {
-      return "RRRR";
-    } else if (hours >= 15 && hours <= 19) {
-      return "RRRO";
-    } else if (hours >= 10 && hours <= 14) {
-      return "RROO";
-    } else if (hours >= 5 && hours <= 9) {
-      return "ROOO";
+    let fiveHoursRow;
+    if (hours > 0) {
+      const activeColor = parseInt(hours / 5);
+      const offColor = 4 - activeColor;
+      fiveHoursRow = "R".repeat(activeColor) + "O".repeat(offColor);
+
+      return fiveHoursRow;
     } else {
-      return "OOOO";
+      fiveHoursRow = "OOOO";
+
+      return fiveHoursRow;
     }
   };
 

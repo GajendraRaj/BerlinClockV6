@@ -66,7 +66,7 @@ describe("Seconds Lamp functionality", () => {
   });
 
   it("should pass O for odd second value", () => {
-    const wrapper = shallow(<BerlinClock time={"59"} />);
+    const wrapper = shallow(<BerlinClock time={"00:59"} />);
     const secondsWrapper = wrapper.find(Seconds);
     expect(secondsWrapper.props().seconds).toEqual("O");
   });
