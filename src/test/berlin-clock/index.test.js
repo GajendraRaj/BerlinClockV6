@@ -324,4 +324,10 @@ describe("Single Minutes Row functionality", () => {
     const minutesWrapper = wrapper.find(Minutes);
     expect(minutesWrapper.props().minutes[1]).toEqual("YYOO");
   });
+
+  it("should return YYYO when minutes/5 gives '3' reminder", () => {
+    const wrapper = shallow(<BerlinClock time={"00:18:00"} />);
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[1]).toEqual("YYYO");
+  });
 });

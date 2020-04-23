@@ -7,7 +7,7 @@ const Clock = () => {
   return (
     <div className="App">
       <h1>{Constants.APP_TITLE}</h1>
-      <BerlinClock time={"09:12:59"} />
+      <BerlinClock time={"09:18:59"} />
     </div>
   );
 };
