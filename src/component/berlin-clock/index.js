@@ -57,7 +57,9 @@ const BerlinClock = (props) => {
   };
 
   const getMinutes = (minutes) => {
-    if (minutes >= 50 && minutes <= 54) {
+    if (minutes >= 55 && minutes <= 59) {
+      return ["YYRYYRYYRYY"];
+    } else if (minutes >= 50 && minutes <= 54) {
       return ["YYRYYRYYRYO"];
     } else if (minutes >= 45 && minutes <= 49) {
       return ["YYRYYRYYROO"];
