@@ -65,26 +65,20 @@ const BerlinClock = (props) => {
   };
 
   const getSingleMinutesRow = (minutes) => {
-    if (minutes % 5 === 4) {
-      return "YYYY";
-    } else if (minutes % 5 === 3) {
-      return "YYYO";
-    } else if (minutes % 5 === 2) {
-      return "YYOO";
-    } else if (minutes % 5 === 1) {
-      return "YOOO";
-    } else if (minutes % 5 === 0) {
-      return "OOOO";
-    } else if (minutes === 4) {
-      return "YYYY";
-    } else if (minutes === 3) {
-      return "YYYO";
-    } else if (minutes === 2) {
-      return "YYOO";
-    } else if (minutes === 1) {
-      return "YOOO";
+    let singleMinutesRow;
+
+    if (minutes > 0) {
+      const activeColor = minutes % Constants.FIVE_LAMPS;
+      const offColor = Constants.FOUR_LAMPS - activeColor;
+      singleMinutesRow =
+        Constants.YELLOW_COLOR.repeat(activeColor) +
+        Constants.OFF_COLOR.repeat(offColor);
+
+      return singleMinutesRow;
     } else {
-      return "OOOO";
+      singleMinutesRow = Constants.OFF_COLOR.repeat(4);
+
+      return singleMinutesRow;
     }
   };
 
