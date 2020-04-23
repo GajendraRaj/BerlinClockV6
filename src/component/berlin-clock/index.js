@@ -64,31 +64,31 @@ const BerlinClock = (props) => {
   };
 
   const getFiveMinutesRow = (minutes) => {
-    if (minutes >= 55 && minutes <= 59) {
-      return "YYRYYRYYRYY";
-    } else if (minutes >= 50 && minutes <= 54) {
-      return "YYRYYRYYRYO";
-    } else if (minutes >= 45 && minutes <= 49) {
-      return "YYRYYRYYROO";
-    } else if (minutes >= 40 && minutes <= 44) {
-      return "YYRYYRYYOOO";
-    } else if (minutes >= 35 && minutes <= 39) {
-      return "YYRYYRYOOOO";
-    } else if (minutes >= 30 && minutes <= 34) {
-      return "YYRYYROOOOO";
-    } else if (minutes >= 25 && minutes <= 29) {
-      return "YYRYYOOOOOO";
-    } else if (minutes >= 20 && minutes <= 24) {
-      return "YYRYOOOOOOO";
-    } else if (minutes >= 15 && minutes <= 19) {
-      return "YYROOOOOOOO";
-    } else if (minutes >= 10 && minutes <= 14) {
-      return "YYOOOOOOOOO";
-    } else if (minutes >= 5 && minutes <= 9) {
-      return "YOOOOOOOOOO";
+    let fiveMinutesRow;
+    if (minutes > 0) {
+      const activeLamps = Math.floor(minutes / 5);
+      const activeLampsColor = getActiveLampsColor(activeLamps);
+      const offColor = 11 - activeLamps;
+      fiveMinutesRow = activeLampsColor + "O".repeat(offColor);
+
+      return fiveMinutesRow;
     } else {
-      return "OOOOOOOOOOO";
+      fiveMinutesRow = "O".repeat(11);
+
+      return fiveMinutesRow;
     }
+  };
+
+  const getActiveLampsColor = (activeLamps) => {
+    let activeLampsColor = "";
+    for (let index = 1; index <= activeLamps; index++) {
+      if (index % 3 === 0) {
+        activeLampsColor += "R";
+      } else {
+        activeLampsColor += "Y";
+      }
+    }
+    return activeLampsColor;
   };
 
   return (
