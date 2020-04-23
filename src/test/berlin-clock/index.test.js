@@ -337,3 +337,48 @@ describe("Single Minutes Row functionality", () => {
     expect(minutesWrapper.props().minutes[1]).toEqual("YYYY");
   });
 });
+
+describe("Entire Berlin Clock functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should return YOOOOOOOOOOOOOOOOOOOOOOO for '00:00:00' time", () => {
+    const hoursWrapper = wrapper.find(Hours);
+    const minutesWrapper = wrapper.find(Minutes);
+    const secondsWrapper = wrapper.find(Seconds);
+
+    let clockTime;
+    const fiveHoursRow = hoursWrapper.props().hours[0];
+    const singleHoursRow = hoursWrapper.props().hours[1];
+    const fiveMinuteRow = minutesWrapper.props().minutes[0];
+    const singleMinuterow = minutesWrapper.props().minutes[1];
+    const second = secondsWrapper.props().seconds;
+
+    clockTime =
+      second + fiveHoursRow + singleHoursRow + fiveMinuteRow + singleMinuterow;
+
+    expect(clockTime).toEqual("YOOOOOOOOOOOOOOOOOOOOOOO");
+  });
+
+  it("should return YRRROROOOYYRYYRYYRYOOOOO for '16:50:06' time", () => {
+    const wrapper = shallow(<BerlinClock time={"16:50:06"} />);
+    const hoursWrapper = wrapper.find(Hours);
+    const minutesWrapper = wrapper.find(Minutes);
+    const secondsWrapper = wrapper.find(Seconds);
+
+    let clockTime;
+    const fiveHoursRow = hoursWrapper.props().hours[0];
+    const singleHoursRow = hoursWrapper.props().hours[1];
+    const fiveMinuteRow = minutesWrapper.props().minutes[0];
+    const singleMinuterow = minutesWrapper.props().minutes[1];
+    const second = secondsWrapper.props().seconds;
+
+    clockTime =
+      second + fiveHoursRow + singleHoursRow + fiveMinuteRow + singleMinuterow;
+
+    expect(clockTime).toEqual("YRRROROOOYYRYYRYYRYOOOOO");
+  });
+});

@@ -19,7 +19,7 @@ describe("Hour component", () => {
   });
 
   it("should render red lamp", () => {
-    wrapper = shallow(<Lamp index={1} colorBlock={"R"} />);
+    wrapper = shallow(<Lamp index={1} colorBlock={"R"} width="25%" />);
     expect(wrapper.find(".bg-red")).toHaveLength(1);
   });
 
