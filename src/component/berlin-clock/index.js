@@ -65,7 +65,9 @@ const BerlinClock = (props) => {
   };
 
   const getSingleMinutesRow = (minutes) => {
-    if (minutes === 3) {
+    if (minutes === 4) {
+      return "YYYY";
+    } else if (minutes === 3) {
       return "YYYO";
     } else if (minutes === 2) {
       return "YYOO";
