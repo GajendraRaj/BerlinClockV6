@@ -6,6 +6,8 @@ const Lamp = (props) => {
   const lampColor =
     props.colorBlock === Constants.ACTIVE_COLOR
       ? Constants.RED_STYLE_CLASS
+      : props.colorBlock === "Y"
+      ? Constants.ACTIVE_STYLE_CLASS
       : Constants.OFF_STYLE_CLASS;
 
   return (
