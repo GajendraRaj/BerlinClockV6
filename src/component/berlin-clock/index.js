@@ -58,10 +58,18 @@ const BerlinClock = (props) => {
 
   const getMinutes = (minutes) => {
     const fiveMinutesRow = getFiveMinutesRow(minutes);
-    const singleMinutesRow = "OOOO";
+    const singleMinutesRow = getSingleMinutesRow(minutes);
     const minutesColor = [fiveMinutesRow, singleMinutesRow];
 
     return minutesColor;
+  };
+
+  const getSingleMinutesRow = (minutes) => {
+    if (minutes === 1) {
+      return "YOOO";
+    } else {
+      return "OOOO";
+    }
   };
 
   const getFiveMinutesRow = (minutes) => {
