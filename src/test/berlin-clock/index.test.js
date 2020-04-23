@@ -288,4 +288,10 @@ describe("Single Minutes Row functionality", () => {
     const minutesWrapper = wrapper.find(Minutes);
     expect(minutesWrapper.props().minutes[1]).toEqual("YOOO");
   });
+
+  it("should return YYOO for '02' minute", () => {
+    const wrapper = shallow(<BerlinClock time={"00:02:00"} />);
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[1]).toEqual("YYOO");
+  });
 });
