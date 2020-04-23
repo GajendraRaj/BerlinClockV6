@@ -66,14 +66,14 @@ const BerlinClock = (props) => {
   const getFiveMinutesRow = (minutes) => {
     let fiveMinutesRow;
     if (minutes > 0) {
-      const activeLamps = Math.floor(minutes / 5);
+      const activeLamps = Math.floor(minutes / Constants.FIVE_LAMPS);
       const activeLampsColor = getActiveLampsColor(activeLamps);
-      const offColor = 11 - activeLamps;
-      fiveMinutesRow = activeLampsColor + "O".repeat(offColor);
+      const offColor = Constants.ELEVEN_LAMPS - activeLamps;
+      fiveMinutesRow = activeLampsColor + Constants.OFF_COLOR.repeat(offColor);
 
       return fiveMinutesRow;
     } else {
-      fiveMinutesRow = "O".repeat(11);
+      fiveMinutesRow = Constants.OFF_COLOR.repeat(Constants.ELEVEN_LAMPS);
 
       return fiveMinutesRow;
     }
@@ -82,10 +82,10 @@ const BerlinClock = (props) => {
   const getActiveLampsColor = (activeLamps) => {
     let activeLampsColor = "";
     for (let index = 1; index <= activeLamps; index++) {
-      if (index % 3 === 0) {
-        activeLampsColor += "R";
+      if (index % Constants.THIRD_LAMP === 0) {
+        activeLampsColor += Constants.ACTIVE_COLOR;
       } else {
-        activeLampsColor += "Y";
+        activeLampsColor += Constants.YELLOW_COLOR;
       }
     }
     return activeLampsColor;
