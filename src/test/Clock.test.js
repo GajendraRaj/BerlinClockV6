@@ -17,4 +17,8 @@ describe("Clock component", () => {
   it("should render the Berlin clock component", () => {
     expect(wrapper.find(BerlinClock).length).toEqual(1);
   });
+
+  it("should render the standard clock component", () => {
+    expect(wrapper.find("StandardClock").length).toEqual(1);
+  });
 });

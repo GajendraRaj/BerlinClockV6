@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BerlinClock from "./berlin-clock";
+import StandardClock from "./standard-clock";
 import Constants from "../constant";
 import "./Clock.css";
 
@@ -30,6 +31,7 @@ const Clock = () => {
     <div className="App">
       <h1>{Constants.APP_TITLE}</h1>
       <BerlinClock time={time} />
+      <StandardClock time={time} />
     </div>
   );
 };
