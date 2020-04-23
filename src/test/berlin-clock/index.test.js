@@ -257,4 +257,9 @@ describe("Five Minutes Row functionality", () => {
     const minutesWrapper = wrapper.find(Minutes);
     expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYYROO");
   });
+  it("should render YYRYYRYYRYO for '50' minutes to '54' minutes", () => {
+    const wrapper = shallow(<BerlinClock time={"00:50:00"} />);
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYYRYO");
+  });
 });
