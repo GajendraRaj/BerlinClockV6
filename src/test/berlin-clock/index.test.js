@@ -270,3 +270,16 @@ describe("Five Minutes Row functionality", () => {
     expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYYRYY");
   });
 });
+
+describe("Single Minutes Row functionality", () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<BerlinClock time={"00:00:00"} />);
+  });
+
+  it("should return OOOO for '00' minute", () => {
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[1]).toEqual("OOOO");
+  });
+});

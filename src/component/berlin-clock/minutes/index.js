@@ -4,9 +4,17 @@ import Lamp from "../lamp";
 
 const Minutes = (props) => {
   return (
-    <div className="hours">
-      {props.minutes[0].split("").map((minute, index) => (
-        <Lamp key={index} colorBlock={minute} width={"9%"} />
+    <div>
+      {props.minutes.map((minutes, rowIndex) => (
+        <div key={rowIndex} className="hours">
+          {minutes.split("").map((minute, index) => (
+            <Lamp
+              key={index}
+              colorBlock={minute}
+              width={rowIndex === 0 ? "9%" : "25%"}
+            />
+          ))}
+        </div>
       ))}
     </div>
   );

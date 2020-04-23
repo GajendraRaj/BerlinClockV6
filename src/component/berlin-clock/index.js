@@ -58,7 +58,8 @@ const BerlinClock = (props) => {
 
   const getMinutes = (minutes) => {
     const fiveMinutesRow = getFiveMinutesRow(minutes);
-    const minutesColor = [fiveMinutesRow];
+    const singleMinutesRow = "OOOO";
+    const minutesColor = [fiveMinutesRow, singleMinutesRow];
 
     return minutesColor;
   };
