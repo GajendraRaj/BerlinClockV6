@@ -245,4 +245,10 @@ describe("Five Minutes Row functionality", () => {
     const minutesWrapper = wrapper.find(Minutes);
     expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYOOOO");
   });
+
+  it("should render YYRYYRYYOOO for '40' minutes to '44' minutes", () => {
+    const wrapper = shallow(<BerlinClock time={"00:40:00"} />);
+    const minutesWrapper = wrapper.find(Minutes);
+    expect(minutesWrapper.props().minutes[0]).toEqual("YYRYYRYYOOO");
+  });
 });
